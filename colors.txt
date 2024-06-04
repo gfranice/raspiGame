@@ -1,4 +1,4 @@
-fondo  #6b4596
+fondo  #976bc9
 
 verde saco 
     sombra  #112103
