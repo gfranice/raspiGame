@@ -125,14 +125,93 @@ dibujo:
 
     // Dibuja el fondo
     mov x0, x20 // Dirección base del arreglo
-    movz w1, 0xFF97, lsl 16
-	movk w1, 0x6bc9, lsl 00 // Color fondo violetita
+    movz w1, 0xFFa0, lsl 16
+	movk w1, 0x96b2, lsl 00 // Color fondo violetita
     mov x2, #0 // Coordenada inicial en x
     mov x3, #0 // Coordenada inicial en y
     mov x4, #SCREEN_WIDTH // Coordenada final en x
     mov x5, #SCREEN_HEIGHT // Coordenada final en y
     bl pintarRectangulo
+    
+        // Dibuja un círculo (pelo)
+    mov x0, x20 
+    movz w1, 0xFF97, lsl 16
+	movk w1, 0x5449, lsl 00 // Color pelo
+    mov x2, #330 
+    mov x3, #88 
+    mov x6, #66 // Radio
+    bl pintarCirculo
 
+    // Dibuja un rectángulo (pelo)
+    mov x0, x20 // Dirección base del arreglo
+    movz w1, 0xFF97, lsl 16
+	movk w1, 0x5449, lsl 00 // Color pelo
+    mov x2, #251
+    mov x3, #53 
+    mov x4, #272
+    mov x5, #134
+    bl pintarRectangulo
+
+    // Dibuja un rectángulo (pelo)
+    mov x0, x20 
+    movz w1, 0xFF97, lsl 16
+	movk w1, 0x5449, lsl 00 // Color pelo
+    mov x2, #245 
+    mov x3, #97 
+    mov x4, #251
+    mov x5, #141
+    bl pintarRectangulo
+
+    // Dibuja un rectángulo (pelo)
+    mov x0, x20 
+    movz w1, 0xFF97, lsl 16
+	movk w1, 0x5449, lsl 00 // Color pelo
+    mov x2, #383
+    mov x3, #47 
+    mov x4, #395
+    mov x5, #146 //uwu
+    bl pintarRectangulo
+
+    // Dibuja un rectángulo (pelo)
+    mov x0, x20
+    movz w1, 0xFF97, lsl 16
+	movk w1, 0x5449, lsl 00 // Color pelo
+    mov x2, #395 
+    mov x3, #72
+    mov x4, #401
+    mov x5, #122
+    bl pintarRectangulo
+
+    // Dibuja un rectángulo (pelo)
+    mov x0, x20
+    movz w1, 0xFF97, lsl 16
+	movk w1, 0x5449, lsl 00 // Color pelo
+    mov x2, #295
+    mov x3, #21
+    mov x4, #364 
+    mov x5, #28 
+    bl pintarRectangulo
+
+    // Dibuja un rectángulo (pelo)
+    mov x0, x20 
+    movz w1, 0xFF97, lsl 16
+	movk w1, 0x5449, lsl 00 // Color pelo
+    mov x2, #289
+    mov x3, #28
+    mov x4, #376 
+    mov x5, #34 
+    bl pintarRectangulo
+
+    // Dibuja un rectángulo (pelo)
+    mov x0, x20 
+    movz w1, 0xFF97, lsl 16
+	movk w1, 0x5449, lsl 00 // Color pelo
+    mov x2, #282 
+    mov x3, #34
+    mov x4, #383 
+    mov x5, #47 
+    bl pintarRectangulo
+    
 findibujo:
     ldp x7, lr, [sp], #16
     ldp x5, x6, [sp], #16
