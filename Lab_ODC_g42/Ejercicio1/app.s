@@ -10,18 +10,11 @@
 
 main:
     mov x20, x0 // Guarda la dirección base del framebuffer en x20
-    mov x0, x20 // x0 = Dirección base del arreglo
-    mov x18, #0 // Y Size
     
 loop1:
-    bl dibujo
-    
-    mov x17, x18
+
 loop0:
-    bl read_gpio_w
-    cbz w27, loop1
-    cmp x17, x18
-    b.ne loop1 // otro loop
+
 
 InfLoop:
     b InfLoop
