@@ -553,6 +553,28 @@ dibujo:
     bl pintarRectangulo
 
 
+    // Dibuja un rectángulo (saco izq)
+    mov x0, x20 // Dirección base del arreglo
+    movz w1, 0xFF36, lsl 16
+    movk w1, 0x351d, lsl 00 // Color oscuro del saco
+    mov x2, #139 // Coordenada inicial en x
+    mov x3, #340 // Coordenada inicial en y
+    mov x4, #279 // Coordenada final en x
+    mov x5, #SCREEN_HEIGHT // Coordenada final en y
+    bl pintarRectangulo
+
+    // Dibuja un rectángulo (saco der)
+    mov x0, x20 // Dirección base del arreglo
+    movz w1, 0xFF36, lsl 16
+    movk w1, 0x351d, lsl 00 // Color oscuro del saco
+    mov x2, #350 // Coordenada inicial en x
+    mov x3, #289 // Coordenada inicial en y
+    mov x4, #482 // Coordenada finalal en x
+    mov x3, #289 // Coordenada inicial en y
+    mov x4, #482 // Coordenada final en x
+    mov x5, #SCREEN_HEIGHT // Coordenada final en y
+    bl pintarRectangulo
+
     // Dibuja un rect�ngulo (camisa brillo abajo)
     mov x0, x20 // Direcci�n base del arreglo
     movz w1, 0xFFC4, lsl 16
@@ -751,28 +773,6 @@ dibujo:
     mov x1, #289 // Coordenada del tercer vértice en y
     bl pintar_triangulo  // Llamada a pintar_triangulo
     */
-
-    // Dibuja un rectángulo (saco izq)
-    mov x0, x20 // Dirección base del arreglo
-    movz w1, 0xFF36, lsl 16
-    movk w1, 0x351d, lsl 00 // Color oscuro del saco
-    mov x2, #139 // Coordenada inicial en x
-    mov x3, #340 // Coordenada inicial en y
-    mov x4, #279 // Coordenada final en x
-    mov x5, #SCREEN_HEIGHT // Coordenada final en y
-    bl pintarRectangulo
-
-    // Dibuja un rectángulo (saco der)
-    mov x0, x20 // Dirección base del arreglo
-    movz w1, 0xFF36, lsl 16
-    movk w1, 0x351d, lsl 00 // Color oscuro del saco
-    mov x2, #350 // Coordenada inicial en x
-    mov x3, #289 // Coordenada inicial en y
-    mov x4, #482 // Coordenada finalal en x
-    mov x3, #289 // Coordenada inicial en y
-    mov x4, #482 // Coordenada final en x
-    mov x5, #SCREEN_HEIGHT // Coordenada final en y
-    bl pintarRectangulo
 
 findibujo:
     ldp x7, lr, [sp], #16
