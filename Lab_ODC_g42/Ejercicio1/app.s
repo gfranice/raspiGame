@@ -371,7 +371,6 @@ dibujo:
     mov x5, #165 // Coordenada final en y
     bl pintarRectangulo
 
-
     // Dibuja un rectángulo (nariz)
     mov x0, x20 // Dirección base del arreglo
     movz w1, 0xFFa1, lsl 16
@@ -380,6 +379,26 @@ dibujo:
     mov x3, #159 // Coordenada inicial en y
     mov x4, #341 // Coordenada final en x
     mov x5, #165 // Coordenada final en y
+    bl pintarRectangulo
+
+    // Dibuja un rectángulo (boca)
+    mov x0, x20 // Dirección base del arreglo
+    movz w1, 0xFFa1, lsl 16
+	movk w1, 0xFFFF, lsl 00 // Color piel
+    mov x2, #301 // Coordenada inicial en x
+    mov x3, #190 // Coordenada inicial en y
+    mov x4, #338 // Coordenada final en x
+    mov x5, #197 // Coordenada final en y
+    bl pintarRectangulo
+
+    // Dibuja un rectángulo (boca)
+    mov x0, x20 // Dirección base del arreglo
+    movz w1, 0xFFa1, lsl 16
+	movk w1, 0xFFFF, lsl 00 // Color piel
+    mov x2, #308 // Coordenada inicial en x
+    mov x3, #198 // Coordenada inicial en y
+    mov x4, #331 // Coordenada final en x
+    mov x5, #205 // Coordenada final en y
     bl pintarRectangulo
 
     // Dibuja un rectángulo (oreja 2)
