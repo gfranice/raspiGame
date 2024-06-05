@@ -284,7 +284,7 @@ dibujo:
     // Dibuja un rectángulo (ceja izq)
     mov x0, x20 // Dirección base del arreglo
     movz w1, 0xFFa1, lsl 16
-	movk w1, 0xFFFF, lsl 00 // Color piel
+	movk w1, 0x3F53, lsl 00 // Color piel
     mov x2, #289  // Coordenada inicial en x
     mov x3, #115 // Coordenada inicial en y
     mov x4, #313 // Coordenada final en x
@@ -294,7 +294,7 @@ dibujo:
     // Dibuja un rectángulo (ceja izq)
     mov x0, x20 // Dirección base del arreglo
     movz w1, 0xFFa1, lsl 16
-	movk w1, 0xFFFF, lsl 00 // Color piel
+	movk w1, 0x3F53, lsl 00 // Color piel
     mov x2, #301 // Coordenada inicial en x
     mov x3, #122 // Coordenada inicial en y
     mov x4, #313 // Coordenada final en x
@@ -304,7 +304,7 @@ dibujo:
     // Dibuja un rectángulo (ceja izq)
     mov x0, x20 // Dirección base del arreglo
     movz w1, 0xFFa1, lsl 16
-	movk w1, 0xFFFF, lsl 00 // Color piel
+	movk w1, 0x3F53, lsl 00 // Color piel
     mov x2, #289 // Coordenada inicial en x
     mov x3, #129 // Coordenada inicial en y
     mov x4, #307 // Coordenada final en x
@@ -314,7 +314,7 @@ dibujo:
     // Dibuja un rectángulo (ceja der)
     mov x0, x20 // Dirección base del arreglo
     movz w1, 0xFFa1, lsl 16
-	movk w1, 0xFFFF, lsl 00 // Color piel
+	movk w1, 0x3F53, lsl 00 // Color piel
     mov x2, #338  // Coordenada inicial en x
     mov x3, #121 // Coordenada inicial en y
     mov x4, #362 // Coordenada final en x
@@ -324,7 +324,7 @@ dibujo:
     // Dibuja un rectángulo (ceja der)
     mov x0, x20 // Dirección base del arreglo
     movz w1, 0xFFa1, lsl 16
-	movk w1, 0xFFFF, lsl 00 // Color piel
+	movk w1, 0x3F53, lsl 00 // Color piel
     mov x2, #338 // Coordenada inicial en x
     mov x3, #128 // Coordenada inicial en y
     mov x4, #350 // Coordenada final en x
@@ -334,7 +334,7 @@ dibujo:
     // Dibuja un rectángulo (ceja der)
     mov x0, x20 // Dirección base del arreglo
     movz w1, 0xFFa1, lsl 16
-	movk w1, 0xFFFF, lsl 00 // Color piel
+	movk w1, 0x3F53, lsl 00 // Color piel
     mov x2, #344 // Coordenada inicial en x
     mov x3, #135 // Coordenada inicial en y
     mov x4, #362 // Coordenada final en x
@@ -344,7 +344,7 @@ dibujo:
     // Dibuja un rectángulo (nariz)
     mov x0, x20 // Dirección base del arreglo
     movz w1, 0xFFa1, lsl 16
-	movk w1, 0xFFFF, lsl 00 // Color piel
+	movk w1, 0x0B09, lsl 00 // Color piel
     mov x2, #314 // Coordenada inicial en x
     mov x3, #153 // Coordenada inicial en y
     mov x4, #320 // Coordenada final en x
@@ -354,7 +354,7 @@ dibujo:
     // Dibuja un rectángulo (nariz)
     mov x0, x20 // Dirección base del arreglo
     movz w1, 0xFFa1, lsl 16
-	movk w1, 0xFFFF, lsl 00 // Color piel
+	movk w1, 0x0B09, lsl 00 // Color piel
     mov x2, #321 // Coordenada inicial en x
     mov x3, #134 // Coordenada inicial en y
     mov x4, #327 // Coordenada final en x
@@ -364,17 +364,18 @@ dibujo:
     // Dibuja un rectángulo (nariz)
     mov x0, x20 // Dirección base del arreglo
     movz w1, 0xFFa1, lsl 16
-	movk w1, 0xFFFF, lsl 00 // Color piel
+	movk w1, 0x0B09, lsl 00 // Color piel
     mov x2, #328 // Coordenada inicial en x
     mov x3, #147 // Coordenada inicial en y
     mov x4, #334 // Coordenada final en x
     mov x5, #165 // Coordenada final en y
     bl pintarRectangulo
 
+
     // Dibuja un rectángulo (nariz)
     mov x0, x20 // Dirección base del arreglo
     movz w1, 0xFFa1, lsl 16
-	movk w1, 0xFFFF, lsl 00 // Color piel
+	movk w1, 0x0B09, lsl 00 // Color piel
     mov x2, #335 // Coordenada inicial en x
     mov x3, #159 // Coordenada inicial en y
     mov x4, #341 // Coordenada final en x
@@ -384,7 +385,7 @@ dibujo:
     // Dibuja un rectángulo (boca)
     mov x0, x20 // Dirección base del arreglo
     movz w1, 0xFFa1, lsl 16
-	movk w1, 0xFFFF, lsl 00 // Color piel
+	movk w1, 0x3F53, lsl 00 // Color piel
     mov x2, #301 // Coordenada inicial en x
     mov x3, #190 // Coordenada inicial en y
     mov x4, #338 // Coordenada final en x
@@ -394,7 +395,7 @@ dibujo:
     // Dibuja un rectángulo (boca)
     mov x0, x20 // Dirección base del arreglo
     movz w1, 0xFFa1, lsl 16
-	movk w1, 0xFFFF, lsl 00 // Color piel
+	movk w1, 0x3F53, lsl 00 // Color piel
     mov x2, #308 // Coordenada inicial en x
     mov x3, #198 // Coordenada inicial en y
     mov x4, #331 // Coordenada final en x
