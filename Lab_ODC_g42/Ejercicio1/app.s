@@ -402,6 +402,146 @@ dibujo:
     mov x5, #205 // Coordenada final en y
     bl pintarRectangulo
 
+    // Dibuja un rectángulo (contorno cara)
+    mov x0, x20 // Dirección base del arreglo
+    movz w1, 0xFFa1, lsl 16
+	movk w1, 0x3F53, lsl 00 // Color piel
+    mov x2, #239 // Coordenada inicial en x
+    mov x3, #140 // Coordenada inicial en y
+    mov x4, #245 // Coordenada final en x
+    mov x5, #165 // Coordenada final en y
+    bl pintarRectangulo
+
+    // Dibuja un rectángulo (contorno cara)
+    mov x0, x20 // Dirección base del arreglo
+    movz w1, 0xFFa1, lsl 16
+	movk w1, 0x3F53, lsl 00 // Color piel
+    mov x2, #246 // Coordenada inicial en x
+    mov x3, #166 // Coordenada inicial en y
+    mov x4, #252 // Coordenada final en x
+    mov x5, #172 // Coordenada final en y
+    bl pintarRectangulo
+
+    // Dibuja un rectángulo (contorno cara)
+    mov x0, x20 // Dirección base del arreglo
+    movz w1, 0xFFa1, lsl 16
+	movk w1, 0x3F53, lsl 00 // Color piel
+    mov x2, #253 // Coordenada inicial en x
+    mov x3, #173 // Coordenada inicial en y
+    mov x4, #259 // Coordenada final en x
+    mov x5, #179 // Coordenada final en y
+    bl pintarRectangulo
+
+    // Dibuja un rectángulo (contorno cara)
+    mov x0, x20 // Dirección base del arreglo
+    movz w1, 0xFFa1, lsl 16
+	movk w1, 0x3F53, lsl 00 // Color piel
+    mov x2, #260 // Coordenada inicial en x
+    mov x3, #180 // Coordenada inicial en y
+    mov x4, #266 // Coordenada final en x
+    mov x5, #186 // Coordenada final en y
+    bl pintarRectangulo
+
+    // Dibuja un rectángulo (contorno cara)
+    mov x0, x20 // Dirección base del arreglo
+    movz w1, 0xFFa1, lsl 16
+	movk w1, 0x3F53, lsl 00 // Color piel
+    mov x2, #267 // Coordenada inicial en x
+    mov x3, #192 // Coordenada inicial en y
+    mov x4, #273 // Coordenada final en x
+    mov x5, #208 // Coordenada final en y
+    bl pintarRectangulo
+
+    // Dibuja un rectángulo (contorno cara)
+    mov x0, x20 // Dirección base del arreglo
+    movz w1, 0xFFa1, lsl 16
+	movk w1, 0x3F53, lsl 00 // Color piel
+    mov x2, #274 // Coordenada inicial en x
+    mov x3, #209 // Coordenada inicial en y
+    mov x4, #280 // Coordenada final en x
+    mov x5, #215 // Coordenada final en y
+    bl pintarRectangulo
+
+    // Dibuja un rectángulo (contorno cara)
+    mov x0, x20 // Dirección base del arreglo
+    movz w1, 0xFFa1, lsl 16
+	movk w1, 0x3F53, lsl 00 // Color piel
+    mov x2, #281 // Coordenada inicial en x
+    mov x3, #216 // Coordenada inicial en y
+    mov x4, #287 // Coordenada final en x
+    mov x5, #222 // Coordenada final en y
+    bl pintarRectangulo
+
+    // Dibuja un rectángulo (contorno cara)
+    mov x0, x20 // Dirección base del arreglo
+    movz w1, 0xFFa1, lsl 16
+	movk w1, 0x3F53, lsl 00 // Color piel
+    mov x2, #289 // Coordenada inicial en x
+    mov x3, #223 // Coordenada inicial en y
+    mov x4, #295 // Coordenada final en x
+    mov x5, #229 // Coordenada final en y
+    bl pintarRectangulo
+
+    // Dibuja un rectángulo (contorno cara)
+    mov x0, x20 // Dirección base del arreglo
+    movz w1, 0xFFa1, lsl 16
+	movk w1, 0x3F53, lsl 00 // Color piel
+    mov x2, #296 // Coordenada inicial en x
+    mov x3, #230 // Coordenada inicial en y
+    mov x4, #308 // Coordenada final en x
+    mov x5, #236 // Coordenada final en y
+    bl pintarRectangulo
+
+    // Dibuja un rectángulo (contorno cara)
+    mov x0, x20 // Dirección base del arreglo
+    movz w1, 0xFFa1, lsl 16
+	movk w1, 0x3F53, lsl 00 // Color piel
+    mov x2, #309 // Coordenada inicial en x
+    mov x3, #237 // Coordenada inicial en y
+    mov x4, #326 // Coordenada final en x
+    mov x5, #243 // Coordenada final en y
+    bl pintarRectangulo
+
+    // Dibuja un rectángulo (contorno cara)
+    mov x0, x20 // Dirección base del arreglo
+    movz w1, 0xFFa1, lsl 16
+	movk w1, 0x3F53, lsl 00 // Color piel
+    mov x2, #327 // Coordenada inicial en x
+    mov x3, #230 // Coordenada inicial en y
+    mov x4, #333 // Coordenada final en x
+    mov x5, #236 // Coordenada final en y
+    bl pintarRectangulo
+
+    // Dibuja un rectángulo (contorno cara)
+    mov x0, x20 // Dirección base del arreglo
+    movz w1, 0xFFa1, lsl 16
+	movk w1, 0x3F53, lsl 00 // Color piel
+    mov x2, #334 // Coordenada inicial en x
+    mov x3, #223 // Coordenada inicial en y
+    mov x4, #346 // Coordenada final en x
+    mov x5, #229 // Coordenada final en y
+    bl pintarRectangulo
+
+    // Dibuja un rectángulo (contorno cara)
+    mov x0, x20 // Dirección base del arreglo
+    movz w1, 0xFFa1, lsl 16
+	movk w1, 0x3F53, lsl 00 // Color piel
+    mov x2, #347 // Coordenada inicial en x
+    mov x3, #216 // Coordenada inicial en y
+    mov x4, #353 // Coordenada final en x
+    mov x5, #222 // Coordenada final en y
+    bl pintarRectangulo
+
+    // Dibuja un rectángulo (contorno cara)
+    mov x0, x20 // Dirección base del arreglo
+    movz w1, 0xFFa1, lsl 16
+	movk w1, 0x3F53, lsl 00 // Color piel
+    mov x2, #354 // Coordenada inicial en x
+    mov x3, #221 // Coordenada inicial en y
+    mov x4, #360 // Coordenada final en x
+    mov x5, #215 // Coordenada final en y
+    bl pintarRectangulo
+
     // Dibuja un rectángulo (oreja 2)
     mov x0, x20 // Dirección base del arreglo
     movz w1, 0xFFa1, lsl 16
@@ -532,120 +672,9 @@ dibujo:
     mov x5, #SCREEN_HEIGHT // Coordenada final en y
     bl pintarRectangulo
 
-
-    // Dibuja un rectángulo (camisa brillo abajo)
-    mov x0, x20 // Dirección base del arreglo
-    movz w1, 0xFFC4, lsl 16
-    movk w1, 0xB9CA, lsl 00 // Color claro camisa
-    mov x2, #276 // Coordenada inicial en x
-    mov x3, #384 // Coordenada inicial en y
-    mov x4, #283 // Coordenada final en x
-    mov x5, #SCREEN_HEIGHT // Coordenada final en y
-    bl pintarRectangulo
-
-    // Dibuja un rectángulo (camisa brillo arriba)
-    mov x0, x20 // Dirección base del arreglo
-    movz w1, 0xFFC4, lsl 16
-    movk w1, 0xB9CA, lsl 00 // Color claro camisa
-    mov x2, #270 // Coordenada inicial en x
-    mov x3, #321 // Coordenada inicial en y
-    mov x4, #283 // Coordenada final en x
-    mov x5, #384 // Coordenada final en y
-    bl pintarRectangulo
-
-    // Dibuja un rectángulo (camisa oscuro abajo)
-    mov x0, x20 // Dirección base del arreglo
-    movz w1, 0xFF9d, lsl 16
-    movk w1, 0x93aa, lsl 00 // Color oscuro camisa
-    mov x2, #284 // Coordenada inicial en x
-    mov x3, #321 // Coordenada inicial en y
-    mov x4, #349 // Coordenada final en x
-    mov x5, #SCREEN_HEIGHT // Coordenada final en y
-    bl pintarRectangulo
-
-    // Dibuja un rectángulo (camisa cuello abajo)
-    mov x0, x20 // Dirección base del arreglo
-    movz w1, 0xFFC4, lsl 16
-    movk w1, 0xB9CA, lsl 00 // Color claro camisa
-    mov x2, #257 // Coordenada inicial en x
-    mov x3, #316 // Coordenada inicial en y
-    mov x4, #270 // Coordenada final en x
-    mov x5, #321 // Coordenada final en y
-    bl pintarRectangulo
-
-    // Dibuja un rectángulo (camisa cuello casi abajo)
-    mov x0, x20 // Dirección base del arreglo
-    movz w1, 0xFFC4, lsl 16
-    movk w1, 0xB9CA, lsl 00 // Color claro camisa
-    mov x2, #245 // Coordenada inicial en x
-    mov x3, #290 // Coordenada inicial en y
-    mov x4, #270 // Coordenada final en x
-    mov x5, #315 // Coordenada final en y
-    bl pintarRectangulo
-
-    // Dibuja un rectángulo (camisa cuello casi arriba)
-    mov x0, x20 // Dirección base del arreglo
-    movz w1, 0xFFC4, lsl 16
-    movk w1, 0xB9CA, lsl 00 // Color claro camisa
-    mov x2, #239 // Coordenada inicial en x
-    mov x3, #259 // Coordenada inicial en y
-    mov x4, #270 // Coordenada final en x
-    mov x5, #290 // Coordenada final en y
-    bl pintarRectangulo
-
-    // Dibuja un rectángulo (camisa cuello arriba izq-medio)
-    mov x0, x20 // Dirección base del arreglo
-    movz w1, 0xFFC4, lsl 16
-    movk w1, 0xB9CA, lsl 00 // Color claro camisa
-    mov x2, #264 // Coordenada inicial en x
-    mov x3, #242 // Coordenada inicial en y
-    mov x4, #270 // Coordenada final en x
-    mov x5, #259 // Coordenada final en y
-    bl pintarRectangulo
-
-    /*// Dibuja un triangulo (camisa cuello izq)
-    mov x0, x20 // Dirección base del arreglo
-    movz w1, 0xFFC4, lsl 16
-    movk w1, 0xB9CA, lsl 00 // Color claro camisa
-    mov x2, #264 // Coordenada del primer vértice en x
-    mov x3, #242 // Coordenada del primer vértice en y
-    mov x4, #239 // Coordenada del segundo vértice en x
-    mov x5, #259 // Coordenada del segundo vértice en y
-    mov x0, #264 // Coordenada del tercer vértice en x
-    mov x1, #259 // Coordenada del tercer vértice en y
-    bl pintar_triangulo  // Llamada a pintar_triangulo
-    */
-
-    /*// Dibuja un triangulo (camisa cuello derecha under)
-    mov x0, x20 // Dirección base del arreglo
-    movz w1, 0xFF3e, lsl 16
-    movk w1, 0x3f53, lsl 00 // Color separador cuello
-    mov x2, #258 // Coordenada del primer vértice en x
-    mov x3, #240 // Coordenada del primer vértice en y
-    mov x4, #294 // Coordenada del segundo vértice en x
-    mov x5, #316 // Coordenada del segundo vértice en y
-    mov x0, #344 // Coordenada del tercer vértice en x
-    mov x1, #234 // Coordenada del tercer vértice en y
-    bl pintar_triangulo  // Llamada a pintar_triangulo
-    */
-
-    /*// Dibuja un triangulo (camisa cuello derecha under)
-    mov x0, x20 // Dirección base del arreglo
-    movz w1, 0xFFC4, lsl 16
-    movk w1, 0xB9CA, lsl 00 // Color claro camisa
-    mov x2, #258 // Coordenada del primer vértice en x
-    mov x3, #240 // Coordenada del primer vértice en y
-    mov x4, #301 // Coordenada del segundo vértice en x
-    mov x5, #315 // Coordenada del segundo vértice en y
-    mov x0, #344 // Coordenada del tercer vértice en x
-    mov x1, #234 // Coordenada del tercer vértice en y
-    bl pintar_triangulo  // Llamada a pintar_triangulo
-    */
-
 findibujo:
     ldp x7, lr, [sp], #16
     ldp x5, x6, [sp], #16
     ldp x3, x4, [sp], #16
     ldp x1, x2, [sp], #16
     br lr
-
