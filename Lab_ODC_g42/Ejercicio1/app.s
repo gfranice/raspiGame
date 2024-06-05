@@ -532,9 +532,120 @@ dibujo:
     mov x5, #SCREEN_HEIGHT // Coordenada final en y
     bl pintarRectangulo
 
+
+    // Dibuja un rectángulo (camisa brillo abajo)
+    mov x0, x20 // Dirección base del arreglo
+    movz w1, 0xFFC4, lsl 16
+    movk w1, 0xB9CA, lsl 00 // Color claro camisa
+    mov x2, #276 // Coordenada inicial en x
+    mov x3, #384 // Coordenada inicial en y
+    mov x4, #283 // Coordenada final en x
+    mov x5, #SCREEN_HEIGHT // Coordenada final en y
+    bl pintarRectangulo
+
+    // Dibuja un rectángulo (camisa brillo arriba)
+    mov x0, x20 // Dirección base del arreglo
+    movz w1, 0xFFC4, lsl 16
+    movk w1, 0xB9CA, lsl 00 // Color claro camisa
+    mov x2, #270 // Coordenada inicial en x
+    mov x3, #321 // Coordenada inicial en y
+    mov x4, #283 // Coordenada final en x
+    mov x5, #384 // Coordenada final en y
+    bl pintarRectangulo
+
+    // Dibuja un rectángulo (camisa oscuro abajo)
+    mov x0, x20 // Dirección base del arreglo
+    movz w1, 0xFF9d, lsl 16
+    movk w1, 0x93aa, lsl 00 // Color oscuro camisa
+    mov x2, #284 // Coordenada inicial en x
+    mov x3, #321 // Coordenada inicial en y
+    mov x4, #349 // Coordenada final en x
+    mov x5, #SCREEN_HEIGHT // Coordenada final en y
+    bl pintarRectangulo
+
+    // Dibuja un rectángulo (camisa cuello abajo)
+    mov x0, x20 // Dirección base del arreglo
+    movz w1, 0xFFC4, lsl 16
+    movk w1, 0xB9CA, lsl 00 // Color claro camisa
+    mov x2, #257 // Coordenada inicial en x
+    mov x3, #316 // Coordenada inicial en y
+    mov x4, #270 // Coordenada final en x
+    mov x5, #321 // Coordenada final en y
+    bl pintarRectangulo
+
+    // Dibuja un rectángulo (camisa cuello casi abajo)
+    mov x0, x20 // Dirección base del arreglo
+    movz w1, 0xFFC4, lsl 16
+    movk w1, 0xB9CA, lsl 00 // Color claro camisa
+    mov x2, #245 // Coordenada inicial en x
+    mov x3, #290 // Coordenada inicial en y
+    mov x4, #270 // Coordenada final en x
+    mov x5, #315 // Coordenada final en y
+    bl pintarRectangulo
+
+    // Dibuja un rectángulo (camisa cuello casi arriba)
+    mov x0, x20 // Dirección base del arreglo
+    movz w1, 0xFFC4, lsl 16
+    movk w1, 0xB9CA, lsl 00 // Color claro camisa
+    mov x2, #239 // Coordenada inicial en x
+    mov x3, #259 // Coordenada inicial en y
+    mov x4, #270 // Coordenada final en x
+    mov x5, #290 // Coordenada final en y
+    bl pintarRectangulo
+
+    // Dibuja un rectángulo (camisa cuello arriba izq-medio)
+    mov x0, x20 // Dirección base del arreglo
+    movz w1, 0xFFC4, lsl 16
+    movk w1, 0xB9CA, lsl 00 // Color claro camisa
+    mov x2, #264 // Coordenada inicial en x
+    mov x3, #242 // Coordenada inicial en y
+    mov x4, #270 // Coordenada final en x
+    mov x5, #259 // Coordenada final en y
+    bl pintarRectangulo
+
+    /*// Dibuja un triangulo (camisa cuello izq)
+    mov x0, x20 // Dirección base del arreglo
+    movz w1, 0xFFC4, lsl 16
+    movk w1, 0xB9CA, lsl 00 // Color claro camisa
+    mov x2, #264 // Coordenada del primer vértice en x
+    mov x3, #242 // Coordenada del primer vértice en y
+    mov x4, #239 // Coordenada del segundo vértice en x
+    mov x5, #259 // Coordenada del segundo vértice en y
+    mov x0, #264 // Coordenada del tercer vértice en x
+    mov x1, #259 // Coordenada del tercer vértice en y
+    bl pintar_triangulo  // Llamada a pintar_triangulo
+    */
+
+    /*// Dibuja un triangulo (camisa cuello derecha under)
+    mov x0, x20 // Dirección base del arreglo
+    movz w1, 0xFF3e, lsl 16
+    movk w1, 0x3f53, lsl 00 // Color separador cuello
+    mov x2, #258 // Coordenada del primer vértice en x
+    mov x3, #240 // Coordenada del primer vértice en y
+    mov x4, #294 // Coordenada del segundo vértice en x
+    mov x5, #316 // Coordenada del segundo vértice en y
+    mov x0, #344 // Coordenada del tercer vértice en x
+    mov x1, #234 // Coordenada del tercer vértice en y
+    bl pintar_triangulo  // Llamada a pintar_triangulo
+    */
+
+    /*// Dibuja un triangulo (camisa cuello derecha under)
+    mov x0, x20 // Dirección base del arreglo
+    movz w1, 0xFFC4, lsl 16
+    movk w1, 0xB9CA, lsl 00 // Color claro camisa
+    mov x2, #258 // Coordenada del primer vértice en x
+    mov x3, #240 // Coordenada del primer vértice en y
+    mov x4, #301 // Coordenada del segundo vértice en x
+    mov x5, #315 // Coordenada del segundo vértice en y
+    mov x0, #344 // Coordenada del tercer vértice en x
+    mov x1, #234 // Coordenada del tercer vértice en y
+    bl pintar_triangulo  // Llamada a pintar_triangulo
+    */
+
 findibujo:
     ldp x7, lr, [sp], #16
     ldp x5, x6, [sp], #16
     ldp x3, x4, [sp], #16
     ldp x1, x2, [sp], #16
     br lr
+
