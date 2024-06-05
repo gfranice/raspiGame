@@ -254,7 +254,6 @@ dibujo:
     bl pintarRectangulo
 
     // Dibuja un círculo (cara)
-    //PROBAR ALTURA PARA CEJAS
     mov x0, x20 // Dirección base del arreglo
     movz w1, 0xFFa1, lsl 16
 	movk w1, 0x657e, lsl 00 // Color piel
