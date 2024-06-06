@@ -1,6 +1,6 @@
-.equ SCREEN_wIDTH,   640
+.equ SCREEN_WIDTH,   640
 .equ SCREEN_HEIGHT,  480
-.equ BITS_PER_PIxEL, 32
+.equ BITS_PER_PIXEL, 32
 
 .equ GPIO_BASE,    0x3f200000
 .equ GPIO_GPFSEL0, 0x00
@@ -27,11 +27,11 @@ InfLoop:
     b InfLoop
 
 pintarPixel:
-    cmp x2, SCREEN_wIDTH // Veo si el x es valido
+    cmp x2, SCREEN_WIDTH // Veo si el x es valido
     b.hs fin_pintarPixel
     cmp x3, SCREEN_HEIGHT // Veo si el y es valido
     b.hs fin_pintarPixel
-    mov x9, SCREEN_wIDTH
+    mov x9, SCREEN_WIDTH
     mul x9, x9, x3
     add x9, x9, x2
     str w1, [x0, x9, lsl #2]
@@ -263,7 +263,7 @@ dibujo:
 	movk w1, 0x96b2, lsl 00 // Color fondo violetita
     mov x2, #0 
     mov x3, #0 
-    mov x4, #SCREEN_wIDTH 
+    mov x4, #SCREEN_WIDTH 
     mov x5, #SCREEN_HEIGHT 
     bl pintarRectangulo
 
@@ -840,7 +840,7 @@ dibujo2:
 	movk w1, 0x694D, lsl 00 // Color fondo verdecito
     mov x2, #0 
     mov x3, #0 
-    mov x4, #SCREEN_wIDTH 
+    mov x4, #SCREEN_WIDTH 
     mov x5, #SCREEN_HEIGHT 
     bl pintarRectangulo
 
