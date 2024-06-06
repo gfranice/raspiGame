@@ -157,16 +157,16 @@ dibujo:
     // Dibuja un círculo (pelo)
     mov x0, x20 
     movz w1, 0xFF97, lsl 16
-	movk w1, 0x5449, lsl 00 // Color pelo
-    mov x2, #330 // Coordenada del centro en x
-    mov x3, #88 // Coordenada del centro en y
-    mov x6, #66 // Radio
+	movk w1, 0x5449, lsl 00 
+    mov x2, #330 
+    mov x3, #88 
+    mov x6, #66 
     bl pintarCirculo
 
     // Dibuja un rectángulo (pelo)
     mov x0, x20 
     movz w1, 0xFF97, lsl 16
-	movk w1, 0x5449, lsl 00 // Color pelo
+	movk w1, 0x5449, lsl 00 
     mov x2, #251 
     mov x3, #53 
     mov x4, #272 
@@ -176,7 +176,7 @@ dibujo:
     // Dibuja un rectángulo (pelo)
     mov x0, x20 
     movz w1, 0xFF97, lsl 16
-	movk w1, 0x5449, lsl 00 // Color pelo
+	movk w1, 0x5449, lsl 00 
     mov x2, #245 
     mov x3, #97 
     mov x4, #251 
@@ -186,7 +186,7 @@ dibujo:
     // Dibuja un rectángulo (pelo)
     mov x0, x20 
     movz w1, 0xFF97, lsl 16
-	movk w1, 0x5449, lsl 00 // Color pelo
+	movk w1, 0x5449, lsl 00 
     mov x2, #383 
     mov x3, #47 
     mov x4, #395 
@@ -196,7 +196,7 @@ dibujo:
     // Dibuja un rectángulo (pelo)
     mov x0, x20 
     movz w1, 0xFF97, lsl 16
-	movk w1, 0x5449, lsl 00 // Color pelo
+	movk w1, 0x5449, lsl 00 
     mov x2, #395 
     mov x3, #72
     mov x4, #401 
@@ -206,7 +206,7 @@ dibujo:
     // Dibuja un rectángulo (pelo)
     mov x0, x20 
     movz w1, 0xFF97, lsl 16
-	movk w1, 0x5449, lsl 00 // Color pelo
+	movk w1, 0x5449, lsl 00 
     mov x2, #295 
     mov x3, #21
     mov x4, #364 
@@ -521,7 +521,7 @@ dibujo:
     // Dibuja un rectángulo (contorno cara)
     mov x0, x20 
     movz w1, 0xFF52, lsl 16
-	movk w1, 0x0B09, lsl 00 // Color contorno piel
+	movk w1, 0x0B09, lsl 00 +
     mov x2, #243 
     mov x3, #140 
     mov x4, #249 
@@ -531,7 +531,7 @@ dibujo:
     // Dibuja un rectángulo (contorno cara)
     mov x0, x20 
     movz w1, 0xFF52, lsl 16
-	movk w1, 0x0B09, lsl 00 // Color contorno piel
+	movk w1, 0x0B09, lsl 00 +
     mov x2, #250 
     mov x3, #166 
     mov x4, #256 
@@ -541,7 +541,7 @@ dibujo:
 // Dibuja un rectángulo (contorno cara)
     mov x0, x20 
     movz w1, 0xFF52, lsl 16
-	movk w1, 0x0B09, lsl 00 // Color contorno piel
+	movk w1, 0x0B09, lsl 00 +
     mov x2, #257 
     mov x3, #173 
     mov x4, #263 
@@ -551,7 +551,7 @@ dibujo:
     // Dibuja un rectángulo (contorno cara)
     mov x0, x20 
     movz w1, 0xFF52, lsl 16
-	movk w1, 0x0B09, lsl 00 // Color contorno piel
+	movk w1, 0x0B09, lsl 00 +
     mov x2, #264 
     mov x3, #180 
     mov x4, #270 
@@ -561,7 +561,7 @@ dibujo:
     // Dibuja un rectángulo (contorno cara)
     mov x0, x20 
     movz w1, 0xFF52, lsl 16
-	movk w1, 0x0B09, lsl 00 // Color contorno piel
+	movk w1, 0x0B09, lsl 00 +
     mov x2, #271 
     mov x3, #192 
     mov x4, #277 
@@ -571,7 +571,7 @@ dibujo:
     // Dibuja un rectángulo (contorno cara)
     mov x0, x20 
     movz w1, 0xFF52, lsl 16
-	movk w1, 0x0B09, lsl 00 // Color contorno piel
+	movk w1, 0x0B09, lsl 00 +
     mov x2, #278 
     mov x3, #209 
     mov x4, #284 
@@ -581,7 +581,7 @@ dibujo:
     // Dibuja un rectángulo (contorno cara)
     mov x0, x20 
     movz w1, 0xFF52, lsl 16
-	movk w1, 0x0B09, lsl 00 // Color contorno piel
+	movk w1, 0x0B09, lsl 00 +
     mov x2, #285 
     mov x3, #216 
     mov x4, #291 
@@ -591,7 +591,7 @@ dibujo:
     // Dibuja un rectángulo (contorno cara)
     mov x0, x20 
     movz w1, 0xFF52, lsl 16
-	movk w1, 0x0B09, lsl 00 // Color contorno piel
+	movk w1, 0x0B09, lsl 00 +
     mov x2, #293 
     mov x3, #223 
     mov x4, #299 
@@ -601,7 +601,7 @@ dibujo:
     // Dibuja un rectángulo (contorno cara)
     mov x0, x20 
     movz w1, 0xFF52, lsl 16
-	movk w1, 0x0B09, lsl 00 // Color contorno piel
+	movk w1, 0x0B09, lsl 00 +
     mov x2, #300 
     mov x3, #230 
     mov x4, #312 
@@ -611,7 +611,7 @@ dibujo:
     // Dibuja un rectángulo (contorno cara)
     mov x0, x20 
     movz w1, 0xFF52, lsl 16
-	movk w1, 0x0B09, lsl 00 // Color contorno piel
+	movk w1, 0x0B09, lsl 00 +
     mov x2, #313 
     mov x3, #237 
     mov x4, #330 
@@ -621,7 +621,7 @@ dibujo:
     // Dibuja un rectángulo (contorno cara)
     mov x0, x20 
     movz w1, 0xFF52, lsl 16
-	movk w1, 0x0B09, lsl 00 // Color contorno piel
+	movk w1, 0x0B09, lsl 00 +
     mov x2, #331 
     mov x3, #230 
     mov x4, #337 
@@ -631,7 +631,7 @@ dibujo:
     // Dibuja un rectángulo (contorno cara)
     mov x0, x20 
     movz w1, 0xFF52, lsl 16
-	movk w1, 0x0B09, lsl 00 // Color contorno piel
+	movk w1, 0x0B09, lsl 00 +
     mov x2, #338 
     mov x3, #223 
     mov x4, #350 
@@ -641,7 +641,7 @@ dibujo:
     // Dibuja un rectángulo (contorno cara)
     mov x0, x20 
     movz w1, 0xFF52, lsl 16
-	movk w1, 0x0B09, lsl 00 // Color contorno piel
+	movk w1, 0x0B09, lsl 00 +
     mov x2, #351 
     mov x3, #216 
     mov x4, #357 
@@ -651,7 +651,7 @@ dibujo:
     // Dibuja un rectángulo (contorno cara)
     mov x0, x20 
     movz w1, 0xFF52, lsl 16
-	movk w1, 0x0B09, lsl 00 // Color contorno piel
+	movk w1, 0x0B09, lsl 00 +
     mov x2, #358 
     mov x3, #221 
     mov x4, #364 
@@ -661,7 +661,7 @@ dibujo:
     // Dibuja un rectángulo (ojo izq arriba)
     mov x0, x20 
     movz w1, 0xFF52, lsl 16
-	movk w1, 0x0B09, lsl 00 // Color contorno piel
+	movk w1, 0x0B09, lsl 00 +
     mov x2, #289
     mov x3, #115 
     mov x4, #314 
@@ -671,7 +671,7 @@ dibujo:
     // Dibuja un rectángulo (ojo izq medio)
     mov x0, x20 
     movz w1, 0xFF52, lsl 16
-	movk w1, 0x0B09, lsl 00 // Color contorno piel
+	movk w1, 0x0B09, lsl 00 +
     mov x2, #301
     mov x3, #121
     mov x4, #314
@@ -681,7 +681,7 @@ dibujo:
     // Dibuja un rectángulo (ojo izq abajo)
     mov x0, x20 
     movz w1, 0xFF52, lsl 16
-	movk w1, 0x0B09, lsl 00 // Color contorno piel
+	movk w1, 0x0B09, lsl 00 +
     mov x2, #289
     mov x3, #128
     mov x4, #307
@@ -691,7 +691,7 @@ dibujo:
     // Dibuja un rectángulo (ojo der medio)
     mov x0, x20 
     movz w1, 0xFF52, lsl 16
-	movk w1, 0x0B09, lsl 00 // Color contorno piel
+	movk w1, 0x0B09, lsl 00 +
     mov x2, #339
     mov x3, #121
     mov x4, #351
@@ -701,7 +701,7 @@ dibujo:
     // Dibuja un rectángulo (ojo der medio)
     mov x0, x20 
     movz w1, 0xFF52, lsl 16
-	movk w1, 0x0B09, lsl 00 // Color contorno piel
+	movk w1, 0x0B09, lsl 00 +
     mov x2, #351
     mov x3, #121
     mov x4, #364
@@ -711,7 +711,7 @@ dibujo:
     // Dibuja un rectángulo (ojo der abajo)
     mov x0, x20 
     movz w1, 0xFF52, lsl 16
-	movk w1, 0x0B09, lsl 00 // Color contorno piel
+	movk w1, 0x0B09, lsl 00 +
     mov x2, #345
     mov x3, #135
     mov x4, #364
@@ -721,7 +721,7 @@ dibujo:
     // Dibuja un rectángulo (boca arriba)
     mov x0, x20 
     movz w1, 0xFF52, lsl 16
-	movk w1, 0x0B09, lsl 00 // Color contorno piel
+	movk w1, 0x0B09, lsl 00 
     mov x2, #301
     mov x3, #191
     mov x4, #339
@@ -731,7 +731,7 @@ dibujo:
     // Dibuja un rectángulo (boca abajo)
     mov x0, x20 
     movz w1, 0xFF52, lsl 16
-	movk w1, 0x0B09, lsl 00 // Color contorno piel
+	movk w1, 0x0B09, lsl 00 
     mov x2, #305
     mov x3, #197
     mov x4, #335
@@ -741,7 +741,7 @@ dibujo:
     // Dibuja un rectángulo (nariz abajo izq)
     mov x0, x20 
     movz w1, 0xFFc4, lsl 16
-	movk w1, 0xb9ca, lsl 00 // Color claro piel
+	movk w1, 0xb9ca, lsl 00 
     mov x2, #314
     mov x3, #153
     mov x4, #332
@@ -751,7 +751,7 @@ dibujo:
     // Dibuja un rectángulo (nariz abajo der)
     mov x0, x20 
     movz w1, 0xFFc4, lsl 16
-	movk w1, 0xb9ca, lsl 00 // Color claro piel
+	movk w1, 0xb9ca, lsl 00 
     mov x2, #333
     mov x3, #161
     mov x4, #337
@@ -761,7 +761,7 @@ dibujo:
     // Dibuja un rectángulo (nariz arriba der)
     mov x0, x20 
     movz w1, 0xFFc4, lsl 16
-	movk w1, 0xb9ca, lsl 00 // Color claro piel
+	movk w1, 0xb9ca, lsl 00 
     mov x2, #326
     mov x3, #146
     mov x4, #332
@@ -771,7 +771,7 @@ dibujo:
     // Dibuja un rectángulo (nariz arriba medio)
     mov x0, x20 
     movz w1, 0xFFc4, lsl 16
-	movk w1, 0xb9ca, lsl 00 // Color claro piel
+	movk w1, 0xb9ca, lsl 00 
     mov x2, #320
     mov x3, #140
     mov x4, #326
