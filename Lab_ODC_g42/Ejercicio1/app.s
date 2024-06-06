@@ -733,6 +733,7 @@ dibujo:
     mov x4, #326
     mov x5, #152
     bl pintarRectangulo
+    b findibujo
 
 dibujo2:
 
