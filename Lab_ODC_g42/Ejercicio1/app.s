@@ -1,6 +1,6 @@
-.equ SCREEN_WIDTH,   640
+.equ SCREEN_wIDTH,   640
 .equ SCREEN_HEIGHT,  480
-.equ BITS_PER_PIXEL, 32
+.equ BITS_PER_PIxEL, 32
 
 .equ GPIO_BASE,    0x3f200000
 .equ GPIO_GPFSEL0, 0x00
@@ -11,7 +11,7 @@
 main:
     mov x20, x0 // Guarda la dirección base del framebuffer en x20
     mov x0, x20 // x0 = Dirección base del arreglo
-    mov x18, #0 // Y Size
+    mov x18, #0 
     
 loop1:
     bl dibujo
@@ -27,11 +27,11 @@ InfLoop:
     b InfLoop
 
 pintarPixel:
-    cmp x2, SCREEN_WIDTH // Veo si el x es valido
+    cmp x2, SCREEN_wIDTH // Veo si el x es valido
     b.hs fin_pintarPixel
     cmp x3, SCREEN_HEIGHT // Veo si el y es valido
     b.hs fin_pintarPixel
-    mov x9, SCREEN_WIDTH
+    mov x9, SCREEN_wIDTH
     mul x9, x9, x3
     add x9, x9, x2
     str w1, [x0, x9, lsl #2]
@@ -124,6 +124,103 @@ fin_loop0_pintarCirculo:
     add sp, sp, #8
     br lr // return
 
+pintar_triangulo:
+    stp x2, x3, [sp, #-16]!
+    stp x4, x5, [sp, #-16]!
+    stp x6, x7, [sp, #-16]!
+    stp lr, x9, [sp, #-16]!
+
+    // Lado 1: (x2, y2) a (x4, y4)
+    mov x10, x2
+    mov x11, x3
+    mov x12, x4
+    mov x13, x5
+    bl pintarLineaBresenham
+
+    // Lado 2: (x4, y4) a (x6, y6)
+    mov x10, x4
+    mov x11, x5
+    mov x12, x6
+    mov x13, x7
+    bl pintarLineaBresenham
+
+    // Lado 3: (x6, y6) a (x2, y2)
+    mov x10, x6
+    mov x11, x7
+    mov x12, x2
+    mov x13, x3
+    bl pintarLineaBresenham
+
+    ldp lr, x9, [sp], #16
+    ldp x6, x7, [sp], #16
+    ldp x4, x5, [sp], #16
+    ldp x2, x3, [sp], #16
+    br lr
+
+pintarLineaBresenham:
+    stp x10, x11, [sp, #-16]!
+    stp x12, x13, [sp, #-16]!
+    stp lr, x9, [sp, #-16]!
+
+    sub x14, x12, x10
+    sub x15, x13, x11
+
+    cmp x14, #0
+    b.ge skip_abs_dx
+    neg x14, x14
+skip_abs_dx:
+    cmp x15, #0
+    b.ge skip_abs_dy
+    neg x15, x15
+skip_abs_dy:
+
+    cmp x14, x15
+    b.gt linea_mayor_dx
+
+    bl linea_mayor_dy
+    b fin_pintarLineaBresenham
+
+linea_mayor_dx:
+    mov x16, x14
+    lsr x16, x14, #1
+
+loop_dx:
+    bl pintarPixel
+    add x10, x10, #1
+    sub x16, x16, x15
+    cmp x16, #0
+    b.ge continuar_dx
+    add x11, x11, #1
+    add x16, x16, x14
+
+continuar_dx:
+    cmp x10, x12
+    b.le loop_dx
+    b fin_pintarLineaBresenham
+
+linea_mayor_dy:
+    mov x16, x15
+    lsr x16, x15, #1
+
+loop_dy:
+    bl pintarPixel
+    add x11, x11, #1
+    sub x16, x16, x14
+    cmp x16, #0
+    b.ge continuar_dy
+    add x10, x10, #1
+    add x16, x16, x15
+
+continuar_dy:
+    cmp x11, x13
+    b.le loop_dy
+
+fin_pintarLineaBresenham:
+    ldp lr, x9, [sp], #16
+    ldp x12, x13, [sp], #16
+    ldp x10, x11, [sp], #16
+    br lr
+
 delay:
     mov x19, #1
     lsl x19, x19, 22
@@ -142,10 +239,10 @@ read_gpio_w:
     cbz w27, endfun
 
     cmp x18, #1
-    b.eq skipW
+    b.eq skipw
     mov x18, #1
     b endfun
-skipW:
+skipw:
     mov x18, #0
     
 endfun:
@@ -166,7 +263,7 @@ dibujo:
 	movk w1, 0x96b2, lsl 00 // Color fondo violetita
     mov x2, #0 
     mov x3, #0 
-    mov x4, #SCREEN_WIDTH 
+    mov x4, #SCREEN_wIDTH 
     mov x5, #SCREEN_HEIGHT 
     bl pintarRectangulo
 
@@ -300,8 +397,8 @@ dibujo:
     mov x3, #183 // Coordenada del primer vértice en y
     mov x4, #382 // Coordenada del segundo vértice en x
     mov x5, #183 // Coordenada del segundo vértice en y
-    mov x0, #357 // Coordenada del tercer vértice en x
-    mov x1, #209 // Coordenada del tercer vértice en y
+    mov x6, #357 // Coordenada del tercer vértice en x
+    mov x7, #209 // Coordenada del tercer vértice en y
     bl pintar_triangulo  // Llamada a pintar_triangulo
     */
 
@@ -499,6 +596,7 @@ dibujo:
     mov x1, #234 // Coordenada del tercer vértice en y
     bl pintar_triangulo  // Llamada a pintar_triangulo
     */
+    
 
     // Dibuja un rectángulo (contorno cara)
     movz w1, 0xFF52, lsl 16
@@ -733,8 +831,8 @@ dibujo:
     mov x4, #326
     mov x5, #152
     bl pintarRectangulo
+    
     b findibujo
-
 dibujo2:
 
     //fondo
@@ -742,7 +840,7 @@ dibujo2:
 	movk w1, 0x694D, lsl 00 // Color fondo verdecito
     mov x2, #0 
     mov x3, #0 
-    mov x4, #SCREEN_WIDTH 
+    mov x4, #SCREEN_wIDTH 
     mov x5, #SCREEN_HEIGHT 
     bl pintarRectangulo
 
