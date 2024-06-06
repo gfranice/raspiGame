@@ -124,103 +124,6 @@ fin_loop0_pintarCirculo:
     add sp, sp, #8
     br lr // return
 
-pintar_triangulo:
-    stp x2, x3, [sp, #-16]!
-    stp x4, x5, [sp, #-16]!
-    stp x6, x7, [sp, #-16]!
-    stp lr, x9, [sp, #-16]!
-
-    // Lado 1: (x2, y2) a (x4, y4)
-    mov x10, x2
-    mov x11, x3
-    mov x12, x4
-    mov x13, x5
-    bl pintarLineaBresenham
-
-    // Lado 2: (x4, y4) a (x6, y6)
-    mov x10, x4
-    mov x11, x5
-    mov x12, x6
-    mov x13, x7
-    bl pintarLineaBresenham
-
-    // Lado 3: (x6, y6) a (x2, y2)
-    mov x10, x6
-    mov x11, x7
-    mov x12, x2
-    mov x13, x3
-    bl pintarLineaBresenham
-
-    ldp lr, x9, [sp], #16
-    ldp x6, x7, [sp], #16
-    ldp x4, x5, [sp], #16
-    ldp x2, x3, [sp], #16
-    br lr
-
-pintarLineaBresenham:
-    stp x10, x11, [sp, #-16]!
-    stp x12, x13, [sp, #-16]!
-    stp lr, x9, [sp, #-16]!
-
-    sub x14, x12, x10
-    sub x15, x13, x11
-
-    cmp x14, #0
-    b.ge skip_abs_dx
-    neg x14, x14
-skip_abs_dx:
-    cmp x15, #0
-    b.ge skip_abs_dy
-    neg x15, x15
-skip_abs_dy:
-
-    cmp x14, x15
-    b.gt linea_mayor_dx
-
-    bl linea_mayor_dy
-    b fin_pintarLineaBresenham
-
-linea_mayor_dx:
-    mov x16, x14
-    lsr x16, x14, #1
-
-loop_dx:
-    bl pintarPixel
-    add x10, x10, #1
-    sub x16, x16, x15
-    cmp x16, #0
-    b.ge continuar_dx
-    add x11, x11, #1
-    add x16, x16, x14
-
-continuar_dx:
-    cmp x10, x12
-    b.le loop_dx
-    b fin_pintarLineaBresenham
-
-linea_mayor_dy:
-    mov x16, x15
-    lsr x16, x15, #1
-
-loop_dy:
-    bl pintarPixel
-    add x11, x11, #1
-    sub x16, x16, x14
-    cmp x16, #0
-    b.ge continuar_dy
-    add x10, x10, #1
-    add x16, x16, x15
-
-continuar_dy:
-    cmp x11, x13
-    b.le loop_dy
-
-fin_pintarLineaBresenham:
-    ldp lr, x9, [sp], #16
-    ldp x12, x13, [sp], #16
-    ldp x10, x11, [sp], #16
-    br lr
-
 delay:
     mov x19, #1
     lsl x19, x19, 22
@@ -390,42 +293,6 @@ dibujo:
     mov x5, #177 
     bl pintarRectangulo
 
-    /*// Dibuja un triangulo (oreja 2)
-    movz w1, 0xFF0000, lsl 16
-    movk w1, 0x00FF, lsl 00 // Color piel
-    mov x2, #357 // Coordenada del primer vértice en x
-    mov x3, #183 // Coordenada del primer vértice en y
-    mov x4, #382 // Coordenada del segundo vértice en x
-    mov x5, #183 // Coordenada del segundo vértice en y
-    mov x6, #357 // Coordenada del tercer vértice en x
-    mov x7, #209 // Coordenada del tercer vértice en y
-    bl pintar_triangulo  // Llamada a pintar_triangulo
-    */
-
-    /*// Dibuja un triangulo (saco brillo hombrera izquierda)
-    movz w1, 0xFF4B, lsl 16
-    movk w1, 0x4930, lsl 00 // Color claro del saco
-    mov x2, #263 // Coordenada del primer vértice en x
-    mov x3, #242 // Coordenada del primer vértice en y
-    mov x4, #139 // Coordenada del segundo vértice en x
-    mov x5, #300 // Coordenada del segundo vértice en y
-    mov x0, #363 // Coordenada del tercer vértice en x
-    mov x1, #139 // Coordenada del tercer vértice en y
-    bl pintar_triangulo  // Llamada a pintar_triangulo
-    */
-
-    /*// Dibuja un triangulo (saco brillo hombrera derecha)
-    movz w1, 0xFF4B, lsl 16
-    movk w1, 0x4930, lsl 00 // Color claro del saco
-    mov x2, #357 // Coordenada del primer vértice en x
-    mov x3, #234 // Coordenada del primer vértice en y
-    mov x4, #357 // Coordenada del segundo vértice en x
-    mov x5, #296 // Coordenada del segundo vértice en y
-    mov x0, #507 // Coordenada del tercer vértice en x
-    mov x1, #296 // Coordenada del tercer vértice en y
-    bl pintar_triangulo  // Llamada a pintar_triangulo
-    */
-
     // Dibuja un rectángulo (saco brillo derecha)
     movz w1, 0xFF4B, lsl 16
     movk w1, 0x4930, lsl 00 // Color claro del saco
@@ -443,42 +310,6 @@ dibujo:
     mov x4, #263 
     mov x5, #340 
     bl pintarRectangulo
-
-    /*// Dibuja un triangulo (saco hombrera izquierda)
-    movz w1, 0xFF36, lsl 16
-    movk w1, 0x351d, lsl 00 // Color oscuro del saco
-    mov x2, #270 // Coordenada del primer vértice en x
-    mov x3, #246 // Coordenada del primer vértice en y
-    mov x4, #139 // Coordenada del segundo vértice en x
-    mov x5, #340 // Coordenada del segundo vértice en y
-    mov x0, #270 // Coordenada del tercer vértice en x
-    mov x1, #340 // Coordenada del tercer vértice en y
-    bl pintar_triangulo  // Llamada a pintar_triangulo
-    */
-
-    /*// Dibuja un triangulo (saco hombrera derecha)
-    movz w1, 0xFF36, lsl 16
-    movk w1, 0x351d, lsl 00 // Color oscuro del saco
-    mov x2, #390 // Coordenada del primer vértice en x
-    mov x3, #289 // Coordenada del primer vértice en y
-    mov x4, #139 // Coordenada del segundo vértice en x
-    mov x5, #389 // Coordenada del segundo vértice en y
-    mov x0, #270 // Coordenada del tercer vértice en x
-    mov x1, #389 // Coordenada del tercer vértice en y
-    bl pintar_triangulo  // Llamada a pintar_triangulo
-    */
-
-    /*// Dibuja un triangulo (saco cuello derecha)
-    movz w1, 0xFF36, lsl 16
-    movk w1, 0x351d, lsl 00 // Color oscuro del saco
-    mov x2, #390 // Coordenada del primer vértice en x
-    mov x3, #245 // Coordenada del primer vértice en y
-    mov x4, #350 // Coordenada del segundo vértice en x
-    mov x5, #289 // Coordenada del segundo vértice en y
-    mov x0, #270 // Coordenada del tercer vértice en x
-    mov x1, #289 // Coordenada del tercer vértice en y
-    bl pintar_triangulo  // Llamada a pintar_triangulo
-    */
 
     // Dibuja un rectángulo (saco izq)
     movz w1, 0xFF36, lsl 16
@@ -560,43 +391,6 @@ dibujo:
     mov x4, #270 
     mov x5, #259 
     bl pintarRectangulo
-
-    /*// Dibuja un triangulo (camisa cuello izq)
-    movz w1, 0xFFC4, lsl 16
-    movk w1, 0xB9CA, lsl 00 // Color claro camisa
-    mov x2, #264 // Coordenada del primer vértice en x
-    mov x3, #242 // Coordenada del primer vértice en y
-    mov x4, #239 // Coordenada del segundo vértice en x
-    mov x5, #259 // Coordenada del segundo vértice en y
-    mov x0, #264 // Coordenada del tercer vértice en x
-    mov x1, #259 // Coordenada del tercer vértice en y
-    bl pintar_triangulo  // Llamada a pintar_triangulo
-    */
-
-    /*// Dibuja un triangulo (camisa cuello derecha under)
-    movz w1, 0xFF3e, lsl 16
-    movk w1, 0x3f53, lsl 00 // Color separador cuello
-    mov x2, #258 // Coordenada del primer vértice en x
-    mov x3, #240 // Coordenada del primer vértice en y
-    mov x4, #294 // Coordenada del segundo vértice en x
-    mov x5, #316 // Coordenada del segundo vértice en y
-    mov x0, #344 // Coordenada del tercer vértice en x
-    mov x1, #234 // Coordenada del tercer vértice en y
-    bl pintar_triangulo  // Llamada a pintar_triangulo
-    */
-
-    /*// Dibuja un triangulo (camisa cuello derecha under)
-    movz w1, 0xFFC4, lsl 16
-    movk w1, 0xB9CA, lsl 00 // Color claro camisa
-    mov x2, #258 // Coordenada del primer vértice en x
-    mov x3, #240 // Coordenada del primer vértice en y
-    mov x4, #301 // Coordenada del segundo vértice en x
-    mov x5, #315 // Coordenada del segundo vértice en y
-    mov x0, #344 // Coordenada del tercer vértice en x
-    mov x1, #234 // Coordenada del tercer vértice en y
-    bl pintar_triangulo  // Llamada a pintar_triangulo
-    */
-    
 
     // Dibuja un rectángulo (contorno cara)
     movz w1, 0xFF52, lsl 16
