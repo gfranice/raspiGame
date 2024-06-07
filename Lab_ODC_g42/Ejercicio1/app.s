@@ -551,8 +551,8 @@ dibujo:
     bl pintarRectangulo
 
     // Dibuja un rectángulo (nariz abajo izq)
-    movz w1, 0xFFc4, lsl 16
-	movk w1, 0xb9ca, lsl 00 // Color claro piel
+    movz w1, 0xFFB8, lsl 16
+	movk w1, 0x7CA0, lsl 00 // Color claro piel
     mov x2, #314
     mov x3, #153
     mov x4, #332
@@ -560,8 +560,8 @@ dibujo:
     bl pintarRectangulo
 
     // Dibuja un rectángulo (nariz abajo der)
-    movz w1, 0xFFc4, lsl 16
-	movk w1, 0xb9ca, lsl 00 // Color claro piel
+    movz w1, 0xFFB8, lsl 16
+	movk w1, 0x7CA0, lsl 00 // Color claro piel
     mov x2, #333
     mov x3, #161
     mov x4, #337
@@ -569,8 +569,8 @@ dibujo:
     bl pintarRectangulo
 
     // Dibuja un rectángulo (nariz arriba der)
-    movz w1, 0xFFc4, lsl 16
-	movk w1, 0xb9ca, lsl 00 // Color claro piel
+    movz w1, 0xFFB8, lsl 16
+	movk w1, 0x7CA0, lsl 00 // Color claro piel
     mov x2, #326
     mov x3, #146
     mov x4, #332
@@ -578,11 +578,10 @@ dibujo:
     bl pintarRectangulo
 
     // Dibuja un rectángulo (nariz arriba medio)
-    movz w1, 0xFFc4, lsl 16
-	movk w1, 0xb9ca, lsl 00 // Color claro piel
+    movz w1, 0xFFB8, lsl 16
+	movk w1, 0x7CA0, lsl 00 // Color claro piel
     mov x2, #320
     mov x3, #140
     mov x4, #326
     mov x5, #152
     bl pintarRectangulo
-    
