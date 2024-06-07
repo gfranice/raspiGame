@@ -18,7 +18,6 @@ loop1:
     
     mov x17, x18
 loop0:
-    bl read_gpio_w
     cbz w27, loop1
     cmp x17, x18
     b.ne loop1
@@ -27,21 +26,20 @@ InfLoop:
     b InfLoop
 
 pintarPixel:
-    cmp x2, SCREEN_WIDTH // Veo si el x es valido
+    cmp x2, SCREEN_WIDTH
     b.hs fin_pintarPixel
-    cmp x3, SCREEN_HEIGHT // Veo si el y es valido
+    cmp x3, SCREEN_HEIGHT
     b.hs fin_pintarPixel
     mov x9, SCREEN_WIDTH
     mul x9, x9, x3
     add x9, x9, x2
-    str w1, [x0, x9, lsl #2]
+    str w1, [x20, x9, lsl #2]
 
 fin_pintarPixel:
     br lr
 
 pintarLineaVertical:
     stp x3, lr, [sp, #-16]!
-    
 loop_pintarLineaVertical:
     cmp x3, x4
     b.gt fin_loop_pintarLineaVertical
@@ -55,7 +53,6 @@ fin_loop_pintarLineaVertical:
 
 pintarLineaHorizontal:
     stp x2, lr, [sp, #-16]!
-    
 loop_pintarLineaHorizontal:
     cmp x2, x4
     b.gt fin_loop_pintarLineaHorizontal
@@ -69,45 +66,43 @@ fin_loop_pintarLineaHorizontal:
 
 pintarRectangulo:
     stp x3, lr, [sp, #-16]!
-    
 loop_pintarRectangulo:
     cmp x3, x5
     b.gt fin_loop_pintarRectangulo
     bl pintarLineaHorizontal
     add x3, x3, #1
     b loop_pintarRectangulo
-    
+
 fin_loop_pintarRectangulo:
     ldp x3, lr, [sp], #16
     br lr
 
 pintarCirculo:
-    sub sp, sp, #8 // Guardo el puntero de retorno en el stack
+    sub sp, sp, #8
     stur lr, [sp]
+    mov x15, x2
+    mov x16, x3
+    add x10, x2, x6
+    add x11, x3, x6
+    mul x12, x6, x6
+    sub x2, x2, x6
 
-    mov x15, x2 // Guardo en x15 la coordenada del centro en x
-    mov x16, x3 // Guardo en x16 la coordenada del centro en y
-    add x10, x2, x6 // Guardo en x10 la posición final en x
-    add x11, x3, x6 // Guardo en x11 la posición final en y
-    mul x12, x6, x6 // x12 = r^2 // para comparaciones en el loop
-    sub x2, x2, x6 // Pongo en x2 la posición inicial en x
-
-loop0_pintarCirculo: // loop para avanzar en x
+loop0_pintarCirculo:
     cmp x2, x10
     b.gt fin_loop0_pintarCirculo
     sub x3, x11, x6
-    sub x3, x3, x6 // Pongo en x3 la posición inicial en y
+    sub x3, x3, x6
 
-loop1_pintarCirculo: // loop para avanzar en y
+loop1_pintarCirculo:
     cmp x3, x11
-    b.gt fin_loop1_pintarCirculo // Veo si tengo que pintar el pixel actual
-    sub x13, x2, x15 // x13 = distancia en x desde el pixel actual al centro
-    smull x13, w13, w13 // x13 = w13 * w13
-    sub x14, x3, x16 // x14 = distancia en y desde el pixel actual al centro
-    smaddl x13, w14, w14, x13 // x13 = x14*x14 + x13
+    b.gt fin_loop1_pintarCirculo
+    sub x13, x2, x15
+    smull x13, w13, w13
+    sub x14, x3, x16
+    smaddl x13, w14, w14, x13
     cmp x13, x12
     b.gt fi_pintarCirculo
-    bl pintarPixel // Pinto el pixel actual
+    bl pintarPixel
 
 fi_pintarCirculo:
     add x3, x3, #1
@@ -118,48 +113,13 @@ fin_loop1_pintarCirculo:
     b loop0_pintarCirculo
 
 fin_loop0_pintarCirculo:
-    mov x2, x15 // Restauro en x2 la coordenada del centro en x
-    mov x3, x16 // Restauro en x3 la coordenada del centro en y
-    ldur lr, [sp] // Recupero el puntero de retorno del stack
+    mov x2, x15
+    mov x3, x16
+    ldur lr, [sp]
     add sp, sp, #8
-    br lr // return
-
-delay:
-    mov x19, #1
-    lsl x19, x19, 22
-repeat:
-    sub x19, x19, 1
-    cbnz x19, repeat
-    ret
-    
-
-read_gpio_w:
-    add x27, xzr, xzr
-    mov x26, GPIO_BASE // direccion del GPIO a x26
-    str wzr, [x26, GPIO_GPFSEL0] // GPIO como solo lectura
-    ldr w27, [x26, GPIO_GPLEV0]
-    and w27, w27, 0b00000010
-    cbz w27, endfun
-
-    cmp x18, #1
-    b.eq skipw
-    mov x18, #1
-    b endfun
-skipw:
-    mov x18, #0
-    
-endfun:
-    ret
+    br lr
 
 dibujo:
-    
-    stp x1,x2,[sp,#-16]!
-    stp x3,x4,[sp,#-16]!
-    stp x5,x6,[sp,#-16]!
-    stp x7,lr,[sp,#-16]!
-
-    cmp x18, #1
-    b.eq dibujo2
 
     // Dibuja un rectángulo (fondo)
     movz w1, 0xFFa0, lsl 16
@@ -626,88 +586,3 @@ dibujo:
     mov x5, #152
     bl pintarRectangulo
     
-    b findibujo
-dibujo2:
-
-    //fondo
-    movz w1, 0xFF5F, lsl 16
-	movk w1, 0x694D, lsl 00 // Color fondo verdecito
-    mov x2, #0 
-    mov x3, #0 
-    mov x4, #SCREEN_WIDTH 
-    mov x5, #SCREEN_HEIGHT 
-    bl pintarRectangulo
-
-    //rectangulo fondo mensaje
-    movz w1, 0xFFa0, lsl 16
-	movk w1, 0x96b2, lsl 00 // Color vioetita
-    mov x2, #147
-    mov x3, #131
-    mov x4, #471
-    mov x5, #256 
-    bl pintarRectangulo
-
-    //letras
-    movz w1, 0xFF5F, lsl 16
-	movk w1, 0x694D, lsl 00 // Color verdecito
-    mov x2, #159
-    mov x3, #131
-    mov x4, #231
-    mov x5, #244 
-    bl pintarRectangulo
-
-    movz w1, 0xFF5F, lsl 16
-	movk w1, 0x694D, lsl 00 // Color verdecito
-    mov x2, #244
-    mov x3, #131
-    mov x4, #250
-    mov x5, #256 
-    bl pintarRectangulo
-
-    movz w1, 0xFF5F, lsl 16
-	movk w1, 0x694D, lsl 00 // Color verdecito
-    mov x2, #250
-    mov x3, #131
-    mov x4, #375
-    mov x5, #185
-    bl pintarRectangulo
-
-    movz w1, 0xFF5F, lsl 16
-	movk w1, 0x694D, lsl 00 // Color verdecito
-    mov x2, #262
-    mov x3, #185
-    mov x4, #302
-    mov x5, #244
-    bl pintarRectangulo
-
-    movz w1, 0xFF5F, lsl 16
-	movk w1, 0x694D, lsl 00 // Color verdecito
-    mov x2, #314
-    mov x3, #185
-    mov x4, #357
-    mov x5, #244
-    bl pintarRectangulo
-
-    movz w1, 0xFF5F, lsl 16
-	movk w1, 0x694D, lsl 00 // Color verdecito
-    mov x2, #369
-    mov x3, #131
-    mov x4, #375
-    mov x5, #260
-    bl pintarRectangulo
-
-    movz w1, 0xFF5F, lsl 16
-	movk w1, 0x694D, lsl 00 // Color verdecito
-    mov x2, #387
-    mov x3, #131
-    mov x4, #459
-    mov x5, #244 
-    bl pintarRectangulo
-
-
-findibujo:
-    ldp x7, lr, [sp], #16
-    ldp x5, x6, [sp], #16
-    ldp x3, x4, [sp], #16
-    ldp x1, x2, [sp], #16
-    br lr
