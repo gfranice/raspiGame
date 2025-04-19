@@ -1,4 +1,9 @@
-FROM debian:stable-slim
+FROM ubuntu:22.04
+
+ENV DEBIAN_FRONTEND=noninteractive \
+    ARMGNU=aarch64-linux-gnu \
+    BIN_DIR=/project/binaries \
+    DISPLAY=host.docker.internal:0.0
 
 RUN apt-get update && apt-get install -y \
     gcc-aarch64-linux-gnu \
@@ -12,6 +17,7 @@ RUN apt-get update && apt-get install -y \
     qemu-system-arm \
     qemu-utils \
     qemu-system-gui \
+    git \
     gdb-multiarch \
     xterm \
     x11-apps \
@@ -21,12 +27,8 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /project
 
-RUN echo '#!/bin/bash\n\
-cd /project\n\
-make clean\n\
-make all\n\
-qemu-system-aarch64 -M raspi3 -kernel kernel8.img -serial stdio -display sdl\n\
-' > /usr/local/bin/run-qemu && \
-    chmod +x /usr/local/bin/run-qemu
+VOLUME ["/qemu-sockets"]
+
+COPY . /project
 
 CMD ["/bin/bash"]

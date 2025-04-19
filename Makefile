@@ -7,6 +7,12 @@ AOPS = -g --warn --fatal-warnings
 ASM_SRCS = $(wildcard $(SRC_DIR)/*.s)
 ASM_OBJS = $(ASM_SRCS:$(SRC_DIR)/%.s=$(BIN_DIR)/%.o)
 
+ifeq ($(OS),Windows_NT)
+	CLEAN_CMD = rmdir /S /Q $(BIN_DIR)
+else 
+	CLEAN_CMD = rm -rf $(BIN_DIR)
+endif
+
 .PHONY: clean prepare
 
 all: prepare kernel8.img
@@ -18,7 +24,7 @@ $(BIN_DIR)/%.o: $(SRC_DIR)/%.s
 	@$(ARMGNU)-as $(AOPS) $< -o $@
 
 clean:
-	@rm -rf *.o $(BIN_DIR)
+	@$(CLEAN_CMD)
 
 kernel8.img: prepare $(ASM_OBJS)
 	@$(ARMGNU)-ld $(ASM_OBJS) -T $(CONFIG_DIR)/memmap -o $(BIN_DIR)/kernel8.elf -M > $(BIN_DIR)/memory_map.txt
@@ -26,7 +32,7 @@ kernel8.img: prepare $(ASM_OBJS)
 	@$(ARMGNU)-objcopy $(BIN_DIR)/kernel8.elf -O binary $(BIN_DIR)/kernel8.img
 
 runQEMU: kernel8.img
-	@qemu-system-aarch64 -M raspi3b -kernel $(BIN_DIR)/kernel8.img -serial stdio -qtest unix:/tmp/qtest.sock,server,nowait
+	@qemu-system-aarch64 -M raspi3b -kernel $(BIN_DIR)/kernel8.img -serial stdio -qtest unix:/tmp/qtest.sock,server,nowait -display sdl,gl=on
 
 runGPIOM: bin/gpiom
 	@./bin/gpiom
