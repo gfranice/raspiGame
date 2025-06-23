@@ -1,10 +1,10 @@
-fondo: A096B2
-saco claro: 4B4930
-saco oscuro: 36351D
-camisa claro: C4B9CA
-camisa oscuro: 9D93AA
-cuello: 3E3F53
-piel claro: B87CA0
-piel medio: A1657E
-piel oscuro: 520B09
-pelo: 975449
+fondo:          A096B2
+saco claro:     4B4930
+saco oscuro:    36351D
+camisa claro:   C4B9CA
+camisa oscuro:  9D93AA
+cuello:         3E3F53
+piel claro:     B87CA0
+piel medio:     A1657E
+piel oscuro:    520B09
+pelo:           975449
